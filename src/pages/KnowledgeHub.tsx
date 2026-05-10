@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronRight, ArrowLeft, ArrowRight, ShieldCheck, Brain, Ear, MessageSquareOff, LockKeyhole, AlertCircle, HeartPulse, Stethoscope, Droplets, Apple, Leaf, Pill, Award, Activity, Heart, Eye, Ear as EarIcon } from 'lucide-react';
+import { ChevronRight, ArrowLeft, ArrowRight, MessageSquareOff, AlertCircle, HeartPulse, Stethoscope, Ear as EarIcon } from 'lucide-react';
 
 export function KnowledgeHub() {
   const [activePage, setActivePage] = useState('a1');
@@ -100,7 +100,6 @@ export function KnowledgeHub() {
       <aside className="w-full md:w-72 flex-shrink-0">
         <div className="sticky top-24 space-y-4">
           {categories.map((cat) => {
-            const isCatActive = cat.pages.some(p => p.id === activePage);
             const bgColorMap: Record<string, string> = {
               blue: 'bg-blue-900', teal: 'bg-teal-700', green: 'bg-green-700', rose: 'bg-rose-700'
             };
@@ -117,7 +116,7 @@ export function KnowledgeHub() {
                   <span>{cat.icon}</span> {cat.title}
                 </div>
                 <div className="flex flex-col">
-                  {cat.pages.map((page, idx) => {
+                  {cat.pages.map((page) => {
                     const isActive = activePage === page.id;
                     return (
                       <button
