@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useMutation } from '@tanstack/react-query';
 
-const GEMINI_API_KEY = "AIzaSyBdlxMabNvY92LpvhY1nIR9O-B7yNC8fgo";
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 
 export function Simulator() {
   const navigate = useNavigate();
